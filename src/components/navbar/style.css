@@ -1,0 +1,36 @@
+.navbar {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+.navbar-logo {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+.navbar-logo p {
+     color: #5a6f08;
+     font-weight: bold;
+     font-family: "Syne";
+}
+.navbar-links {
+     display: flex;
+     gap: 3em;
+     list-style-type: none;
+     /*color: ;*/
+}
+li a {
+     color: #5a6f08;
+     font-weight: bold;
+     font-family: "Syne";
+     /*background-color: #93ad18;
+     padding: 0.3em 1em;
+     border-radius: 5px;
+     color: #fff;*/
+}
+.navbar-img {
+     width: 40%;
+     /* color: #93ad18;
+    color: #5a6f08;
+    color: #6e8508;*/
+}

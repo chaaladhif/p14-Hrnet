@@ -1,0 +1,16 @@
+:root {
+     font-family: "Work Sans", "Syne", sans-serif;
+     line-height: 1.5;
+     font-weight: 400;
+}
+
+a {
+     text-decoration: none;
+}
+
+body {
+     margin: auto;
+}
+
+@media (prefers-color-scheme: light) {
+}
