@@ -5,7 +5,7 @@
      align-items: center;
      background-color: #fff;
      line-height: 2em;
-     padding: 1em 0;
+     padding-block: 4em;
 }
 .form-field {
      display: flex;
@@ -17,15 +17,20 @@
      display: flex;
      flex-direction: column;
 }
-.adress {
+.address {
      gap: 1em;
      display: flex;
      justify-content: center;
+     margin: 1em 0;
 }
 .button-save {
-     background-color: #895b1c;
+     background-color: #5a6f08;
      color: #fff;
      border: 0.5px solid;
      margin-top: 1em;
      padding: 0.5em 4em;
+}
+input,
+#department {
+     padding-block: 0.5em;
 }

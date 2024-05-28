@@ -1,4 +1,11 @@
 .create-employee-container {
-     background-color: #92ad17;
-     padding-block: 2em;
+     background-color: #5a6f08;
+     padding-block: 1px;
+}
+.create-title {
+     font-family: "Syne";
+     color: #fff;
+}
+#confirmation {
+     color: #fff;
 }

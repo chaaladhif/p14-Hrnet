@@ -12,6 +12,7 @@
      color: #5a6f08;
      font-weight: bold;
      font-family: "Syne";
+     margin: 0;
 }
 .navbar-links {
      display: flex;
@@ -20,13 +21,15 @@
      /*color: ;*/
 }
 li a {
+     display: inline-block;
      color: #5a6f08;
      font-weight: bold;
-     font-family: "Syne";
-     /*background-color: #93ad18;
-     padding: 0.3em 1em;
-     border-radius: 5px;
-     color: #fff;*/
+     font-family: "Syne", sans-serif;
+     transition: transform 330ms ease-in-out;
+}
+li a:hover {
+     transform: scale(1.1);
+     opacity: 0.8;
 }
 .navbar-img {
      width: 40%;

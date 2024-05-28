@@ -20,7 +20,7 @@ function Home() {
      return (
           <>
                <Banner />
-               <div className="features">
+               {/*<div className="features">
                     <h2 className="features-title">Features</h2>
                     <div className="feature-cards">
                          {features.map((feature, index) => (
@@ -42,7 +42,7 @@ function Home() {
                               Add New Employee
                          </Link>
                     </div>
-               </div>
+                    </div>*/}
           </>
      );
 }

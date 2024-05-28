@@ -1,14 +1,14 @@
 .features {
-     background-color: #92ad17;
+     /* background-color: #ab8754;*/
      margin-top: -1.6em;
+     padding-block: 1em 0;
 }
 .feature-cards {
      justify-content: space-around;
      display: flex;
-     padding: 2em 0;
+     padding: 2em;
 }
 .features-title {
-     color: #fff;
      padding-block: 1em;
      font-family: "Syne";
 }
@@ -18,14 +18,14 @@
 }
 .cta {
      position: relative;
-     padding: 2em 0;
+     padding-bottom: 2em;
 }
 .cta .cta-links ::before {
      content: " ";
-     background-color: #5a6f08;
+     background-color: #ab8754;
      position: absolute;
      width: 100%;
-     height: 1%;
+     height: 0.5%;
      bottom: 0;
      left: 0;
      z-index: 0;
@@ -33,12 +33,17 @@
 .cta-links {
      display: flex;
      justify-content: center;
-     gap: 1em;
+     gap: 2em;
 }
 .cta-button {
-     background-color: #895b1c;
+     background-color: #5a6f08;
      color: #fff;
      border: 0.5px solid;
-     padding: 0.5em 1em;
+     padding: 0.5em 0;
      width: 20%;
+     transition: transform 330ms ease-in-out;
+}
+.cta-button:hover {
+     transform: scale(1.1);
+     background-color: #ab8754;
 }
