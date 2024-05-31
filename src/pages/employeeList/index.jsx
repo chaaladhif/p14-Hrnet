@@ -1,11 +1,18 @@
 import "./style.css";
 import DataTable from "react-data-table-component";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Loader from "../../components/loader/index";
 function EmployeeList() {
      const employees = useSelector((state) => state.employee.employees);
      const [filterText, setFilterText] = useState("");
-
+     const [loading, setLoading] = useState(true);
+     useEffect(() => {
+          // Simulate loading employees (replace with actual data fetching logic)
+          setTimeout(() => {
+               setLoading(false);
+          }, 1000);
+     }, []);
      const columns = [
           {
                name: "First Name",
@@ -76,13 +83,17 @@ function EmployeeList() {
                     />
                     <i className="fa-solid fa-magnifying-glass"></i>
                </div>
-               <DataTable
-                    columns={columns}
-                    data={filteredEmployees}
-                    pagination
-                    highlightOnHover
-                    striped
-               />
+               {loading ? (
+                    <Loader />
+               ) : (
+                    <DataTable
+                         columns={columns}
+                         data={filteredEmployees}
+                         pagination
+                         highlightOnHover
+                         striped
+                    />
+               )}
           </div>
      );
 }
