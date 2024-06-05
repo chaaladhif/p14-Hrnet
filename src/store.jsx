@@ -1,5 +1,14 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
-import { persistReducer } from "redux-persist";
+
+import {
+     persistReducer,
+     FLUSH,
+     REHYDRATE,
+     PAUSE,
+     PERSIST,
+     PURGE,
+     REGISTER,
+} from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 const initialState = {
@@ -90,4 +99,17 @@ export const store = configureStore({
      reducer: {
           employee: persistedReducer,
      },
+     middleware: (getDefaultMiddleware) =>
+          getDefaultMiddleware({
+               serializableCheck: {
+                    ignoredActions: [
+                         FLUSH,
+                         REHYDRATE,
+                         PAUSE,
+                         PERSIST,
+                         PURGE,
+                         REGISTER,
+                    ],
+               },
+          }),
 });
