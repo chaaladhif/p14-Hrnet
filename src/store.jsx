@@ -1,16 +1,5 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-import {
-     persistReducer,
-     FLUSH,
-     REHYDRATE,
-     PAUSE,
-     PERSIST,
-     PURGE,
-     REGISTER,
-} from "redux-persist";
-import storage from "redux-persist/lib/storage";
-
 const initialState = {
      employees: [],
      employee: {
@@ -87,29 +76,12 @@ export const {
      addEmployee,
 } = employeeSlice.actions;
 
-const persistConfig = {
-     key: "root",
-     storage,
-};
-export const persistedReducer = persistReducer(
-     persistConfig,
-     employeeSlice.reducer
-);
 export const store = configureStore({
      reducer: {
-          employee: persistedReducer,
+          employee: employeeSlice.reducer,
      },
      middleware: (getDefaultMiddleware) =>
           getDefaultMiddleware({
-               serializableCheck: {
-                    ignoredActions: [
-                         FLUSH,
-                         REHYDRATE,
-                         PAUSE,
-                         PERSIST,
-                         PURGE,
-                         REGISTER,
-                    ],
-               },
+               serializableCheck: false,
           }),
 });

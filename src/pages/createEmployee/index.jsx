@@ -2,9 +2,9 @@ import { useState } from "react";
 import "./style.css";
 import Form from "../../components/form/index";
 import Loader from "../../components/loader/index";
-import Modal from "../../components/modal/index";
+//import Modal from "../../components/modal/index";
 import { addEmployee } from "../../store";
-
+import Modal from "chaala-modal";
 function CreateEmployee() {
      const [showConfirmation, setShowConfirmation] = useState(false);
      const [loading, setLoading] = useState(false); // Initialisez loading à false

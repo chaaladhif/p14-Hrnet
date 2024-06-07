@@ -1,4 +1,5 @@
 import "./style.css";
+import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,14 +19,43 @@ import {
 function Form({ setShowConfirmation }) {
      const dispatch = useDispatch();
      const employee = useSelector((state) => state.employee.employee);
+     const [errors, setErrors] = useState({});
+
+     const validate = () => {
+          const newErrors = {};
+          if (employee.firstname.length < 2) {
+               newErrors.firstname =
+                    "First name must be at least 2 characters long.";
+          }
+          if (employee.lastname.length < 2) {
+               newErrors.lastname =
+                    "Last name must be at least 2 characters long.";
+          }
+          if (!employee.dateOfBirth) {
+               newErrors.dateOfBirth = "Date of birth is required.";
+          }
+          if (!employee.street) {
+               newErrors.street = "Street is required.";
+          }
+          if (!employee.zipCode || isNaN(employee.zipCode)) {
+               newErrors.zipCode = "Zip code must be a number.";
+          }
+          return newErrors;
+     };
 
      const saveEmployee = (event) => {
           event.preventDefault();
+          const validationErrors = validate();
+          if (Object.keys(validationErrors).length > 0) {
+               setErrors(validationErrors);
+               return;
+          }
           dispatch(addEmployee());
           setShowConfirmation(true);
-          setTimeout(() => setShowConfirmation(false), 5000);
+          setTimeout(() => setShowConfirmation(false), 3000);
+          // Réinitialiser les erreurs après la soumission réussie
+          setErrors({});
      };
-
      return (
           <form onSubmit={saveEmployee} id="create-employee">
                <div className="form-field">
@@ -39,6 +69,9 @@ function Form({ setShowConfirmation }) {
                                    dispatch(setFirstname(e.target.value))
                               }
                          />
+                         {errors.firstname && (
+                              <span className="erreur">{errors.firstname}</span>
+                         )}
                     </div>
                     <div className="field-label">
                          <label htmlFor="last-name">Last Name</label>
@@ -50,6 +83,9 @@ function Form({ setShowConfirmation }) {
                                    dispatch(setLastname(e.target.value))
                               }
                          />
+                         {errors.lastname && (
+                              <span className="erreur">{errors.lastname}</span>
+                         )}
                     </div>
                </div>
                <div className="form-field">
@@ -67,6 +103,11 @@ function Form({ setShowConfirmation }) {
                               }
                               dateFormat="MM/dd/yyyy"
                          />
+                         {errors.dateOfBirth && (
+                              <span className="erreur">
+                                   {errors.dateOfBirth}
+                              </span>
+                         )}
                     </div>
                     <div className="field-label">
                          <label htmlFor="start-date">Start Date</label>
@@ -93,6 +134,9 @@ function Form({ setShowConfirmation }) {
                          value={employee.street}
                          onChange={(e) => dispatch(setStreet(e.target.value))}
                     />
+                    {errors.street && (
+                         <span className="erreur">{errors.street}</span>
+                    )}
                     <label htmlFor="city">City</label>
                     <input
                          id="city"
@@ -118,6 +162,9 @@ function Form({ setShowConfirmation }) {
                          value={employee.zipCode}
                          onChange={(e) => dispatch(setZipCode(e.target.value))}
                     />
+                    {errors.zipCode && (
+                         <span className="erreur">{errors.zipCode}</span>
+                    )}
                </fieldset>
                <label htmlFor="department">Department</label>
                <select

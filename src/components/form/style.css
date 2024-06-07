@@ -34,3 +34,6 @@ input,
 #department {
      padding-block: 0.5em;
 }
+.erreur {
+     color: red;
+}
