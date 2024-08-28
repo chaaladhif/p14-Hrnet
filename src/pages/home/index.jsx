@@ -20,29 +20,6 @@ function Home() {
      return (
           <>
                <Banner />
-               {/*<div className="features">
-                    <h2 className="features-title">Features</h2>
-                    <div className="feature-cards">
-                         {features.map((feature, index) => (
-                              <Card
-                                   key={index}
-                                   title={feature.title}
-                                   content={feature.content}
-                              />
-                         ))}
-                    </div>
-               </div>
-               <div className="cta">
-                    <h2 className="cta-title ">Get Started</h2>
-                    <div className="cta-links">
-                         <Link to="/employees" className="cta-button">
-                              View Current Employees
-                         </Link>
-                         <Link to="/create-employee" className="cta-button">
-                              Add New Employee
-                         </Link>
-                    </div>
-                    </div>*/}
           </>
      );
 }
