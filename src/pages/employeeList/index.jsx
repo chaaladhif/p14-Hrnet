@@ -81,7 +81,6 @@ function EmployeeList() {
                          value={filterText}
                          onChange={(e) => setFilterText(e.target.value)}
                     />
-                    <i className="fa-solid fa-magnifying-glass"></i>
                </div>
                {loading ? (
                     <Loader />

@@ -15,6 +15,7 @@ import {
      setDepartment,
      addEmployee,
 } from "../../store";
+import states from "../../states";
 
 function Form({ setShowConfirmation }) {
      const dispatch = useDispatch();
@@ -151,9 +152,14 @@ function Form({ setShowConfirmation }) {
                          onChange={(e) => dispatch(setState(e.target.value))}
                     >
                          <option value="">Select a state</option>
-                         <option value="CA">California</option>
-                         <option value="NY">New York</option>
-                         <option value="TX">Texas</option>
+                         {states.map((state) => (
+                              <option
+                                   key={state.abbreviation}
+                                   value={state.abbreviation}
+                              >
+                                   {state.name}
+                              </option>
+                         ))}
                     </select>
                     <label htmlFor="zip-code">Zip Code</label>
                     <input

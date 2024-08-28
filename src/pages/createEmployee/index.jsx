@@ -5,8 +5,6 @@ import Loader from "../../components/loader/index";
 //import Modal from "../../components/modal/index";
 import { addEmployee } from "../../store";
 import Modal from "chaalaa-modal";
-//import "../../../node_modules/chaalaa-modal/dist/style.css"; // Import du style
-
 function CreateEmployee() {
      const [showConfirmation, setShowConfirmation] = useState(false);
      const [loading, setLoading] = useState(false); // Initialisez loading à false
