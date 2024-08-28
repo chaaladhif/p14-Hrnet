@@ -15,7 +15,7 @@ import {
      setDepartment,
      addEmployee,
 } from "../../store";
-import states from "../../states";
+import { states } from "../../states";
 
 function Form({ setShowConfirmation }) {
      const dispatch = useDispatch();

@@ -1,4 +1,4 @@
-const states = [
+export const states = [
      {
           name: "Alabama",
           abbreviation: "AL",
@@ -236,4 +236,3 @@ const states = [
           abbreviation: "WY",
      },
 ];
-export default states;
